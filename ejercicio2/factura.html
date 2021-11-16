@@ -1,30 +1,564 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Operaciones</title>
+    <title>Factura</title>
+    <!-- <link rel="stylesheet" href="css/styles.css"> -->
 </head>
+<script languaje="javascript">
+    // validacion de datos 
+    let ok
+
+    // Valida que los datos del cliente se hallan llenado
+    function validar() {
+        if (document.f1.nom.value.length == 0) {
+            alert('Por favor digite el nombre')
+            document.f1.nom.focus()
+            return 0
+        }
+        nom = document.f1.nom.value
+
+        if (document.f1.ape.value.length == 0) {
+            alert('Por favor digite el apellido')
+            document.f1.ape.focus()
+            return 0
+        }
+        ape = document.f1.ape.value
+
+        if (document.f1.ced.value.length == 0) {
+            alert('Por favor digite su cedula')
+            document.f1.ced.focus()
+            return 0
+        }
+        ced = document.f1.ced.value
+        if (document.f1.tel.value.length == 0) {
+            alert('Por favor digite telefono')
+            document.f1.tel.focus()
+            return 0
+        }
+        tel = document.f1.tel.value
+
+        ok = true
+
+        // alert('Bienvenido  ' + nom + ' ' + ape + '')
+    }
+
+    function ver1() {
+        if (document.f1.op1.selectedIndex == 0) {
+            document.f1.val1.value = ''
+            document.f1.tot1.value = ''
+            document.f1.can1.value = ''
+        } else if (document.f1.op1.selectedIndex == 1) {
+            document.f1.val1.value = '18000'
+        } else if (document.f1.op1.selectedIndex == 2) {
+            document.f1.val1.value = '8800'
+        } else if (document.f1.op1.selectedIndex == 3) {
+            document.f1.val1.value = '13000'
+        } else if (document.f1.op1.selectedIndex == 4) {
+            document.f1.val1.value = '7000'
+        } else if (document.f1.op1.selectedIndex == 5) {
+            document.f1.val1.value = '2500'
+        }
+    }
+
+    function ver2() {
+        if (document.f1.op2.selectedIndex == 0) {
+            document.f1.val2.value = ''
+            document.f1.tot2.value = ''
+            document.f1.can2.value = ''
+        } else if (document.f1.op2.selectedIndex == 1) {
+            document.f1.val2.value = '18000'
+        } else if (document.f1.op2.selectedIndex == 2) {
+            document.f1.val2.value = '8800'
+        } else if (document.f1.op2.selectedIndex == 3) {
+            document.f1.val2.value = '13000'
+        } else if (document.f1.op2.selectedIndex == 4) {
+            document.f1.val2.value = '7000'
+        } else if (document.f1.op2.selectedIndex == 5) {
+            document.f1.val2.value = '2500'
+        }
+    }
+
+    function ver3() {
+        if (document.f1.op3.selectedIndex == 0) {
+            document.f1.val3.value = ''
+            document.f1.tot3.value = ''
+            document.f1.can3.value = ''
+        } else if (document.f1.op3.selectedIndex == 1) {
+            document.f1.val3.value = '18000'
+        } else if (document.f1.op3.selectedIndex == 2) {
+            document.f1.val3.value = '8800'
+        } else if (document.f1.op3.selectedIndex == 3) {
+            document.f1.val3.value = '13000'
+        } else if (document.f1.op3.selectedIndex == 4) {
+            document.f1.val3.value = '7000'
+        } else if (document.f1.op3.selectedIndex == 5) {
+            document.f1.val3.value = '2500'
+        }
+    }
+
+    function ver4() {
+        if (document.f1.op4.selectedIndex == 0) {
+            document.f1.val4.value = ''
+            document.f1.tot4.value = ''
+            document.f1.can4.value = ''
+        } else if (document.f1.op4.selectedIndex == 1) {
+            document.f1.val4.value = '18000'
+        } else if (document.f1.op4.selectedIndex == 2) {
+            document.f1.val4.value = '8800'
+        } else if (document.f1.op4.selectedIndex == 3) {
+            document.f1.val4.value = '13000'
+        } else if (document.f1.op4.selectedIndex == 4) {
+            document.f1.val4.value = '7000'
+        } else if (document.f1.op4.selectedIndex == 5) {
+            document.f1.val4.value = '2500'
+        }
+    }
+
+    function ver5() {
+        if (document.f1.op5.selectedIndex == 0) {
+            document.f1.val5.value = ''
+            document.f1.tot5.value = ''
+            document.f1.can5.value = ''
+        } else if (document.f1.op5.selectedIndex == 1) {
+            document.f1.val5.value = '18000'
+        } else if (document.f1.op5.selectedIndex == 2) {
+            document.f1.val5.value = '8800'
+        } else if (document.f1.op5.selectedIndex == 3) {
+            document.f1.val5.value = '13000'
+        } else if (document.f1.op5.selectedIndex == 4) {
+            document.f1.val5.value = '7000'
+        } else if (document.f1.op5.selectedIndex == 5) {
+            document.f1.val5.value = '2500'
+        }
+    }
+    // calcula los precios y valores
+    function calcular() {
+        observaciones = ''
+            // Si los datos estan bien pasa a validar los campos de los productos
+        if (ok == true) {
+
+            //Calcular cantidad de productos
+
+            valo1 = document.f1.val1.value
+            cant1 = document.f1.can1.value
+
+            valo2 = document.f1.val2.value
+            cant2 = document.f1.can2.value
+
+            valo3 = document.f1.val3.value
+            cant3 = document.f1.can3.value
+
+            valo4 = document.f1.val4.value
+            cant4 = document.f1.can4.value
+
+            valo5 = document.f1.val5.value
+            cant5 = document.f1.can5.value
+
+            tCant = cant1 + cant2 + cant3 + cant4 + cant5
+            tVal = valo1 + valo2 + valo3 + valo4 + valo5
+
+            if (tVal <= 0) {
+                alert('Por favor Seleccione producto')
+            } else if (tCant <= 0) {
+                alert('Por favor Seleccione cantidad\nAsegurese de ingresar cantidades positivas')
+            } else {
+                tota1 = valo1 * cant1
+                tota2 = valo2 * cant2
+                tota3 = valo3 * cant3
+                tota4 = valo4 * cant4
+                tota5 = valo5 * cant5
+
+                subto1 = parseInt(tota1) + parseInt(tota2) + parseInt(tota3) + parseInt(tota4) + parseInt(tota5)
+
+                if (subto1 == 0) {
+                    alert('Por favor seleccione campos y cantidades correctamente')
+
+                } else {
+                    // Valida si se calculo en la fila y muestra el dato
+                    if (tota1 > 0)
+                        document.f1.tot1.value = '$' + tota1
+                    if (tota2 > 0)
+                        document.f1.tot2.value = '$' + tota2
+                    if (tota3 > 0)
+                        document.f1.tot3.value = '$' + tota3
+                    if (tota4 > 0)
+                        document.f1.tot4.value = '$' + tota4
+                    if (tota5 > 0)
+                        document.f1.tot5.value = '$' + tota5
+                        // SubTotal
+
+                    // iva
+                    iv = subto1 * 0.19
+                    document.f1.iva.value = '$' + iv
+                    subto = subto1 + iv
+                    document.f1.subt.value = '$' + subto
+                    desc = 0
+                    pdesc = '0%'
+
+                    // descuento
+                    if (subto > 0 && subto <= 49999) {
+                        console.log('Sin descuento', subto)
+                        desc = 0
+                        pdesc = '0%'
+                    } else if (subto >= 50000 && subto <= 70000) {
+                        console.log('descuento del 1%', subto)
+                        desc = subto * 0.01
+                        pdesc = '1%'
+                    } else if (subto >= 70001 && subto <= 80000) {
+                        console.log('descuento del 2%', subto)
+                        desc = subto * 0.02
+                        pdesc = '2%'
+                    } else if (subto >= 80001 && subto <= 90000) {
+                        console.log('descuento del 3%', subto)
+                        desc = subto * 0.03
+                        pdesc = '3%'
+                    } else if (subto >= 90001 && subto <= 100000) {
+                        console.log('descuento del 4%', subto)
+                        desc = subto * 0.04
+                        pdesc = '4%'
+                    } else if (subto > 100000) {
+                        console.log('descuento del 5%', subto)
+                        desc = subto * 0.05
+                        pdesc = '5%'
+                    }
+                    // total    
+                    document.f1.des.value = '$' + desc.toFixed(2)
+                    document.f1.pdes.value = pdesc
+                    tota = subto - desc
+                    document.f1.totalF.value = '$' + tota
+
+                    if (tota > 0) {
+                        verComprados()
+                            // imprimir()
+                    } else {
+                        document.f1.info.value = ''
+                    }
+                }
+            }
+        }
+    }
+
+    // guarda los elemetos que se compraron
+    let observaciones = ''
+
+    //  Imprime solo los elementos comprados
+    function verComprados() {
+
+        if (tota1 > 0) {
+
+            observaciones += '\n'
+            observaciones += ' '
+            observaciones += document.f1.op1.value
+            observaciones += '         '
+            observaciones += '$'
+            observaciones += document.f1.val1.value
+            observaciones += '        '
+            observaciones += document.f1.can1.value
+            observaciones += '         '
+            observaciones += document.f1.tot1.value
+
+        }
+        if (tota2 > 0) {
+
+            observaciones += '\n'
+            observaciones += ' '
+            observaciones += document.f1.op2.value
+            observaciones += '         '
+            observaciones += '$'
+            observaciones += document.f1.val2.value
+            observaciones += '        '
+            observaciones += document.f1.can2.value
+            observaciones += '         '
+            observaciones += document.f1.tot2.value
+
+        }
+        if (tota3 > 0) {
+
+            observaciones += '\n'
+            observaciones += ' '
+            observaciones += document.f1.op3.value
+            observaciones += '         '
+            observaciones += '$'
+            observaciones += document.f1.val3.value
+            observaciones += '        '
+            observaciones += document.f1.can3.value
+            observaciones += '         '
+            observaciones += document.f1.tot3.value
+
+        }
+        if (tota4 > 0) {
+
+            observaciones += '\n'
+            observaciones += ' '
+            observaciones += document.f1.op4.value
+            observaciones += '         '
+            observaciones += '$'
+            observaciones += document.f1.val4.value
+            observaciones += '        '
+            observaciones += document.f1.can4.value
+            observaciones += '         '
+            observaciones += document.f1.tot4.value
+
+        }
+        if (tota5 > 0) {
+
+            observaciones += '\n'
+            observaciones += ' '
+            observaciones += document.f1.op5.value
+            observaciones += '         '
+            observaciones += '$'
+            observaciones += document.f1.val5.value
+            observaciones += '        '
+            observaciones += document.f1.can5.value
+            observaciones += '         '
+            observaciones += document.f1.tot5.value
+
+        }
+        alert(observaciones);
+    }
+
+    // muestra en el text area los valores
+    function imprimir() {
+        document.f1.info.value = '               Factura \n\n Cliente: ' + nom + ' ' + ape + '\n Cedula:   ' + ced + '\n Telefono: ' + tel + '\n Productos       Valor      Cantidad      Total\n' + observaciones + '\n\n SubTotal:  $' + subto + '\n Descuento: $' + desc.toFixed(2) + '      (' + pdesc + ')\n Iva:       $' + iv + '\n Total:     $' + tota
+    }
+
+    // limpia los valores sin eliminar los datos del usuario    
+    function limpiarval() {
+        observaciones = ''
+        document.f1.info.value = ''
+        document.f1.subt.value = ''
+        document.f1.iva.value = ''
+        document.f1.totalF.value = ''
+        document.f1.des.value = ''
+        document.f1.pdes.value = ''
+        document.f1.op1.selectedIndex = 0
+        document.f1.op2.selectedIndex = 0
+        document.f1.op3.selectedIndex = 0
+        document.f1.op4.selectedIndex = 0
+        document.f1.op5.selectedIndex = 0
+        ver1()
+        ver2()
+        ver3()
+        ver4()
+        ver5()
+    }
+</script>
+
 <body>
-    <!-- El formulario debe tener el action y el metodo post -->
-    <form name="f1" action="subsidioT.php" method="POST">
-        <br>
-        <br>
-        <center>
-            <h1>Subsidio de transporte</h1>
-            Ingrese el sueldo del empleado
-            <br>
-            <input type="text" name="salEm" size="10">
-            <br>
-            Ingrese los dias trabajados
-            <br>
-            <input type="text" name="diasT" size="10">
-            <br>
-            <br>            
-            <input type="submit" name="calc" value="Calcular">            
-        </center>
-    </form>
-    
+    <style>
+        .inputName {
+            text-align: center
+        }
+        
+        input {
+            text-align: right
+        }
+        
+        table {
+            margin-top: 50px;
+        }
+        
+        .butonFact {
+            background-color: rgb(236, 162, 23);
+            padding: 20px;
+            border-radius: 9px;
+        }
+    </style>
+
+    <center>
+        <form name="f1" action="factura.php" method="POST">
+
+            <table border=1 cellspacing=0 width=70% height=80%>
+                <tr>
+                    <th colspan=4>
+                        Cotizacion factura
+                    </th>
+                </tr>
+                <tr bgcolor=gray>
+                    <th>
+                        Nombre:<br>
+                        <input class="inputName " value="mi nombre" type="text" name=nom size=15>
+                    </th>
+                    <th>
+                        Apellido:<br>
+                        <input class="inputName " value="mi apellido" type="text" name=ape size=15>
+                    </th>
+                    <th>
+                        Cedula:<br>
+                        <input class="inputName " value="1033456123" type="text" name=ced size=15>
+                    </th>
+                    <th>
+                        Telefono:<br>
+                        <input class="inputName " value="7652145" type="text" name=tel size=15>
+                    </th>
+                </tr>
+                <tr bgcolor=orange>
+                    <th>
+                        Descripción:<br>
+                    </th>
+                    <th>
+                        Valor:<br>
+                    </th>
+                    <th>
+                        Cantidad:<br>
+                    </th>
+                    <th>
+                        Total:<br>
+                    </th>
+                </tr>
+                <tr bgcolor=yellow>
+                    <th>
+                        <select id="list1" name=op1 onclick="ver1(),validar()">
+                        <option>Seleccione</option>
+                        <option>1. Carne</option>
+                        <option>2. Yogurt</option>
+                        <option>3. Huevos</option>
+                        <option>4. Queso</option>
+                        <option>5. Leche</option>
+                    </select>
+                    </th>
+                    <th>
+                        <input type="text" name=val1 size=10>
+                    </th>
+                    <th>
+                        <input type="number" name=can1 size=10>
+                    </th>
+                    <th>
+                        <input type="text" name=tot1 size=10>
+                    </th>
+                </tr>
+                <tr bgcolor=yellow>
+                    <th>
+                        <select id="list2" name=op2 onclick="ver2(), validar()">
+                        <option>Seleccione</option>
+                        <option>1. Carne</option>
+                        <option>2. Yogurt</option>
+                        <option>3. Huevos</option>
+                        <option>4. Queso</option>
+                        <option>5. Leche</option>
+                    </select>
+                    </th>
+                    <th>
+                        <input type="text" name=val2 size=10>
+                    </th>
+                    <th>
+                        <input type="number" name=can2 size=10>
+                    </th>
+                    <th>
+                        <input type="text" name=tot2 size=10>
+                    </th>
+                </tr>
+                <tr bgcolor=yellow>
+                    <th>
+                        <select name=op3 onclick="ver3(), validar()">
+                        <option>Seleccione</option>
+                        <option>1. Carne</option>
+                        <option>2. Yogurt</option>
+                        <option>3. Huevos</option>
+                        <option>4. Queso</option>
+                        <option>5. Leche</option>
+                    </select>
+                    </th>
+                    <th>
+                        <input type="text" name=val3 size=10>
+                    </th>
+                    <th>
+                        <input type="number" name=can3 size=10>
+                    </th>
+                    <th>
+                        <input type="text" name=tot3 size=10>
+                    </th>
+                </tr>
+                <tr bgcolor=yellow>
+                    <th>
+                        <select name=op4 onclick="ver4(),validar()">
+                        <option>Seleccione</option>
+                        <option>1. Carne</option>
+                        <option>2. Yogurt</option>
+                        <option>3. Huevos</option>
+                        <option>4. Queso</option>
+                        <option>5. Leche</option>
+                    </select>
+                    </th>
+                    <th>
+                        <input type="text" name=val4 size=10>
+                    </th>
+                    <th>
+                        <input type="number" name=can4 size=10>
+                    </th>
+                    <th>
+                        <input type="text" name=tot4 size=10>
+                    </th>
+                </tr>
+                <tr bgcolor=yellow>
+                    <th>
+                        <select name=op5 onclick="ver5(), validar()">
+                        <option>Seleccione</option>
+                        <option>1. Carne</option>
+                        <option>2. Yogurt</option>
+                        <option>3. Huevos</option>
+                        <option>4. Queso</option>
+                        <option>5. Leche</option>
+                    </select>
+                    </th>
+                    <th>
+                        <input type="text" name=val5 size=10>
+                    </th>
+                    <th>
+                        <input type="number" name=can5 size=10>
+                    </th>
+                    <th>
+                        <input type="text" name=tot5 size=10>
+                    </th>
+                </tr>
+                <tr bgcolor=lightblue>
+                    <th colspan=2 rowspan=4>
+                        <!-- Observaciones<br> -->
+                        <!-- <textarea name=info cols=50 rows=20></textarea> -->
+                        <input class="butonFact" type="submit" name="calc" value="Facturar">
+                    </th>
+                    <th>
+                        SubTotal
+                    </th>
+                    <th>
+                        <input type="text" name=subt size=10>
+                    </th>
+                </tr>
+                <tr bgcolor=lightblue>
+                    <th>
+                        Iva<br>
+                    </th>
+                    <th>
+                        <input type="text" name=iva size=10>
+                    </th>
+                </tr>
+                <tr bgcolor=lightblue>
+                    <th>
+                        Descuento
+                    </th>
+                    <th>
+                        <input type="text" name=pdes size=10> =
+                        <input type="text" name=des size=10>
+                    </th>
+                </tr>
+                <tr bgcolor=lightblue>
+                    <th>
+                        Total factura
+                    </th>
+                    <th>
+                        <input type="text" name=totalF size=10>
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="4">
+                        <input type="button" value="Limpiar Resultados" size=10 onclick="limpiarval()">
+                        <input type="button" value=" Cotizar" size=10 onclick="validar(), calcular()">
+                        <input type="reset" value="Limpiar Cotizacion" size=10>
+                    </th>
+                </tr>
+            </table>
+        </form>
+    </center>
 </body>
+
 </html>

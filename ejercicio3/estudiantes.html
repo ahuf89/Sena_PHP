@@ -1,30 +1,125 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Operaciones</title>
+    <title>Nota definitiva For</title>
 </head>
+
 <body>
-    <!-- El formulario debe tener el action y el metodo post -->
-    <form name="f1" action="subsidioT.php" method="POST">
+    <center>
         <br>
         <br>
-        <center>
-            <h1>Subsidio de transporte</h1>
-            Ingrese el sueldo del empleado
-            <br>
-            <input type="text" name="salEm" size="10">
-            <br>
-            Ingrese los dias trabajados
-            <br>
-            <input type="text" name="diasT" size="10">
-            <br>
-            <br>            
-            <input type="submit" name="calc" value="Calcular">            
-        </center>
-    </form>
-    
+        <br>
+        <br>
+        <table width="40%">
+            <thead>
+                <tr bgcolor=lightblue height="20px">
+                    <th colspan=5>Sabana de notas</th>
+                </tr>
+                <tr bgcolor=lightblue>
+                    <th>Alumno</th>
+                    <th>Nota 1</th>
+                    <th>Nota 2</th>
+                    <th>Nota 3</th>
+                    <th>Nota 4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <form name="f1" action="estudiantes.php" method="POST">
+                    <tr bgcolor=lightblue>
+                        <th>
+                            <input type="text" name="almn1">
+                        </th>
+                        <th>
+                            <input type="text" name="nt1">
+                        </th>
+                        <th>
+                            <input type="text" name="nt2">
+                        </th>
+                        <th>
+                            <input type="text" name="nt3">
+                        </th>
+                        <th>
+                            <input type="text" name="nt4">
+                        </th>
+                    </tr>
+                    <tr bgcolor=lightblue>
+                        <th>
+                            <input type="text" name="almn2">
+                        </th>
+                        <th>
+                            <input type="text" name="nt2_1">
+                        </th>
+                        <th>
+                            <input type="text" name="nt2_2">
+                        </th>
+                        <th>
+                            <input type="text" name="nt2_3">
+                        </th>
+                        <th>
+                            <input type="text" name="nt2_4">
+                        </th>
+                    </tr>
+                    <tr bgcolor=lightblue>
+                        <th>
+                            <input type="text" name="almn3">
+                        </th>
+                        <th>
+                            <input type="text" name="nt3_1">
+                        </th>
+                        <th>
+                            <input type="text" name="nt3_2">
+                        </th>
+                        <th>
+                            <input type="text" name="nt3_3">
+                        </th>
+                        <th>
+                            <input type="text" name="nt3_4">
+                        </th>
+                    </tr>
+                    <tr bgcolor=lightblue>
+                        <th>
+                            <input type="text" name="almn4">
+                        </th>
+                        <th>
+                            <input type="text" name="nt4_1">
+                        </th>
+                        <th>
+                            <input type="text" name="nt4_2">
+                        </th>
+                        <th>
+                            <input type="text" name="nt4_3">
+                        </th>
+                        <th>
+                            <input type="text" name="nt4_4">
+                        </th>
+                    </tr>
+                    <tr bgcolor=lightblue>
+                        <th>
+                            <input type="text" name="almn5">
+                        </th>
+                        <th>
+                            <input type="text" name="nt5_1">
+                        </th>
+                        <th>
+                            <input type="text" name="nt5_2">
+                        </th>
+                        <th>
+                            <input type="text" name="nt5_3">
+                        </th>
+                        <th>
+                            <input type="text" name="nt5_4">
+                        </th>
+                    </tr>
+                    <tr bgcolor=lightblue>
+                        <th colspan="5">
+                            <input type="submit" name="calc" value="Ver estadisticas">
+                        </th>
+                    </tr>
+                </form>
+            </tbody>
+        </table>
+    </center>
 </body>
+
+
 </html>

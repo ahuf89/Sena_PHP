@@ -5,65 +5,133 @@
     <title>Opreciones Respuesta php</title>
 </head>
 <body>
-    <?php
-    // captura de datos
+    <?php     
+        $nomTot = 0;        
+        
+        if(isset($_POST['calc'])){     
+            $emp1 = $_POST['emp1'];
+            $emp2 = $_POST['emp2'];
+            $emp3 = $_POST['emp3'];
+            $emp4 = $_POST['emp4'];
+            $emp5 = $_POST['emp5'];
+            $salEm1 = $_POST['salEm1'];
+            $salEm2 = $_POST['salEm2'];
+            $salEm3 = $_POST['salEm3'];
+            $salEm4 = $_POST['salEm4'];
+            $salEm5 = $_POST['salEm5'];           
+        }   
+           
+        
+        function calcPen($salE){
+            $penE =  $salE*0.04;
+            return $penE;
+        }
+        
+        function calcSalud($salE){
+            $saluE =  $salE*0.045;
+            return $saluE;
+        }
+        
+        function calcFon($salE){
+            $fonE =  $salE*0.015;
+            return $fonE;
+        }
 
+        function calcTotEmp($salE){
+            $penE =  $salE*0.04;
+            $saluE =  $salE*0.045;
+            $fonE =  $salE*0.015;
+            $tEmpl = $salE - ($penE+$saluE+$fonE);
+            global $nomTot;
+            $nomTot +=  $tEmpl;
+            return $tEmpl;
+        }
 
-
-    $salMin = 908526;
-    $sublTr = 106454;
-
+        function validaSubTras($salE){
+            $salMin = 908526;
+            $subTr = 106454;
+            $mSal= "";
+            if($salE >=($salMin*2)){
+                $mSal = "No tiene";
+                return $mSal;
+            } else if($salE <= ($salMin*2)){
+                return '$'.$subTr;
+            }           
+        }
     
-    if(isset($_POST['calc'])){
-        $salEm = $_POST['salEm'];
-        $diasT = $_POST['diasT'];
-    }
-    $sueldo = ($salEm/30) * $diasT;
-    
-    if($salEm>($salMin*2)){
-        echo' 
-        <h1>No tiene subsidio de transporte</h1>
-        ';
-    } elseif ($salEm<($salMin*2)){
-        echo'<center>   
-                <br>     
-                <br>     
-                <h1>Tiene subsidio de transporte</h1>
-                <h2>'.$sublTr.'</h2>
-                <h1>Dias trabajados son: '.$diasT.'</h1>
-                <h1>Total nomina: '.$sueldo.'</h1>
-
-            </center>';
-    }
-
-
-
-    /*
-
-    // proscesamiento
-    $sum = $num1 + $num2;
-    $res = $num1 - $num2;
-    $mult = $num1 * $num2;
-    $div = $num1 / $num2;
-    
-
-    // salida de informacion
-    echo'<center><br>
-                <br>
-                <h1>Resultados</h1>
-                Slario base:
-                <font color="red">'.$salEm.'</font> 
-                <br>
-                Subsidio de transporte:
-                <font color="red">'.$res.'</font> 
-                <br>
-                La multiplicacion es:
-                <font color="red">'.$mult.'</font> 
-                <br>
-                La division es:
-                <font color="red">'.$div.'</font>                
-            </center>';         
-
-            */
-            
+        echo'
+        <center>
+            <br>
+            <br>
+            <br>
+            <br>
+            <table width="80%">
+                <thead>
+                    <tr bgcolor=lightblue height="20px">
+                        <th colspan=8>Nomina de empleados</th>
+                    </tr>
+                    <tr bgcolor=lightblue>
+                        <th>Epleaado</th>
+                        <th>Salario</th>
+                        <th>Pension</th>
+                        <th>Salud</th>
+                        <th>F Empleados</th>
+                        <th>Sub trans</th>                               
+                        <th>Tot Empleado</th>                               
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr bgcolor=lightgreen>
+                        <th>'.$emp1.'</th>
+                        <th>$'.$salEm1.'</th>
+                        <th>$'.calcPen($salEm1).'</th>                        
+                        <th>$'.calcSalud($salEm1).'</th>                        
+                        <th>$'.calcFon($salEm1).'</th>                                      
+                        <th>'.validaSubTras($salEm1).'</th>                
+                        <th>$'.calcTotEmp($salEm1).'</th>                                      
+                    </tr>                 
+                    <tr bgcolor=lightgreen>
+                        <th>'.$emp2.'</th>
+                        <th>$'.$salEm2.'</th>
+                        <th>$'.calcPen($salEm2).'</th>                        
+                        <th>$'.calcSalud($salEm2).'</th>                        
+                        <th>$'.calcFon($salEm2).'</th>                                      
+                        <th>'.validaSubTras($salEm2).'</th>                
+                        <th>$'.calcTotEmp($salEm2).'</th>                                      
+                    </tr>                 
+                    <tr bgcolor=lightgreen>
+                        <th>'.$emp3.'</th>
+                        <th>$'.$salEm3.'</th>
+                        <th>$'.calcPen($salEm3).'</th>                        
+                        <th>$'.calcSalud($salEm3).'</th>                        
+                        <th>$'.calcFon($salEm3).'</th>                                      
+                        <th>'.validaSubTras($salEm3).'</th>                
+                        <th>$'.calcTotEmp($salEm3).'</th>                                      
+                    </tr>                 
+                    <tr bgcolor=lightgreen>
+                        <th>'.$emp4.'</th>
+                        <th>$'.$salEm4.'</th>
+                        <th>$'.calcPen($salEm4).'</th>                        
+                        <th>$'.calcSalud($salEm4).'</th>                        
+                        <th>$'.calcFon($salEm4).'</th>                                      
+                        <th>'.validaSubTras($salEm4).'</th>                
+                        <th>$'.calcTotEmp($salEm4).'</th>                                      
+                    </tr>                 
+                    <tr bgcolor=lightgreen>
+                        <th>'.$emp5.'</th>
+                        <th>$'.$salEm5.'</th>
+                        <th>$'.calcPen($salEm5).'</th>                        
+                        <th>$'.calcSalud($salEm5).'</th>                        
+                        <th>$'.calcFon($salEm5).'</th>                                      
+                        <th>'.validaSubTras($salEm5).'</th>                
+                        <th>$'.calcTotEmp($salEm5).'</th>                                      
+                    </tr>                 
+                    <tr bgcolor=lightblue>
+                        <th>Valor Nomina</th>
+                        <th colspan=6>$'.$nomTot.'</th>
+                    </tr>
+                </tbody>
+            </table>
+        </center>'            
     ?>
+</body>

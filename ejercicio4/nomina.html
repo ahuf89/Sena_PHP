@@ -1,30 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Operaciones</title>
+    <title>Nomina</title>
 </head>
+
 <body>
-    <!-- El formulario debe tener el action y el metodo post -->
-    <form name="f1" action="subsidioT.php" method="POST">
+    <center>
         <br>
         <br>
-        <center>
-            <h1>Subsidio de transporte</h1>
-            Ingrese el sueldo del empleado
-            <br>
-            <input type="text" name="salEm" size="10">
-            <br>
-            Ingrese los dias trabajados
-            <br>
-            <input type="text" name="diasT" size="10">
-            <br>
-            <br>            
-            <input type="submit" name="calc" value="Calcular">            
-        </center>
-    </form>
-    
+        <br>
+        <br>
+        <table width="40%">
+            <thead>
+                <tr bgcolor=lightgreen height="20px">
+                    <th colspan=2>Nomina de Empleados</th>
+                </tr>
+                <tr bgcolor=lightgreen>
+                    <th>Empleado</th>
+                    <th>Salario</th>
+                </tr>
+            </thead>
+            <tbody>
+                <form name="f1" action="nomina.php" method="POST">
+                    <tr bgcolor=lightgreen>
+                        <th>
+                            <input type="text" name="emp1">
+                        </th>
+                        <th>
+                            <input type="number" name="salEm1">
+                        </th>
+                    </tr>
+                    <tr bgcolor=lightgreen>
+                        <th>
+                            <input type="text" name="emp2">
+                        </th>
+                        <th>
+                            <input type="number" name="salEm2">
+                        </th>
+                    </tr>
+                    <tr bgcolor=lightgreen>
+                        <th>
+                            <input type="text" name="emp3">
+                        </th>
+                        <th>
+                            <input type="number" name="salEm3">
+                        </th>
+                    </tr>
+                    <tr bgcolor=lightgreen>
+                        <th>
+                            <input type="text" name="emp4">
+                        </th>
+                        <th>
+                            <input type="number" name="salEm4">
+                        </th>
+                    </tr>
+                    <tr bgcolor=lightgreen>
+                        <th>
+                            <input type="text" name="emp5">
+                        </th>
+                        <th>
+                            <input type="number" name="salEm5">
+                        </th>
+                    </tr>
+                    <tr bgcolor=lightgreen>
+                        <th colspan="2">
+                            <input type="submit" name="calc" value="Ver Nomina">
+                        </th>
+                    </tr>
+                </form>
+            </tbody>
+        </table>
+    </center>
 </body>
+
 </html>
